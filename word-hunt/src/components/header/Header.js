@@ -4,13 +4,13 @@ import {TextField,createMuiTheme,ThemeProvider,MenuItem} from "@material-ui/core
 import categories from "../../data/category"
 import {useGlobalContext} from "../../context"
 const Header = ()=>{
-  const {language,setLanguage,word,setWord} = useGlobalContext()
+  const {language,setLanguage,word,setWord,lightMode} = useGlobalContext()
   const darkTheme =createMuiTheme({
     palette:{
       primary:{
-        main:"#fff",
+        main:`${lightMode?"#000":"#fff"}`,
       },
-      type:"dark",
+      type:`${lightMode?"light":"dark"}`,
     },
   })
   return(

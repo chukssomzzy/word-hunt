@@ -9,7 +9,7 @@ const AppProvider = ({children})=>{
 const [language,setLanguage] = useState('en')
 const [word, setWord] = useState("")
 const [meanings,setMeanings] = useState([])
-
+const [lightMode, setLightMode]= useState(false)
   const dictionaryApi = useCallback(async ()=>{
     try{
       const data = await axios.get(`${url}${language}/${word}`)
@@ -21,7 +21,7 @@ const [meanings,setMeanings] = useState([])
   useEffect(()=>{
    dictionaryApi() 
   },[language,word,dictionaryApi])
-return(<AppContext.Provider value={{setLanguage,language,word,setWord,meanings}}>
+return(<AppContext.Provider value={{setLanguage,language,word,setWord,meanings,lightMode,setLightMode}}>
   {children}
     </AppContext.Provider>
 )
