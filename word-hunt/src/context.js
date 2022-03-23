@@ -17,11 +17,11 @@ const [meanings,setMeanings] = useState([])
     }catch(e){
      console.log(e)
     }
-  },[language])
+  },[language,word])
   useEffect(()=>{
    dictionaryApi() 
-  },[language,dictionaryApi])
-return(<AppContext.Provider value={{setLanguage,language,word,setWord}}>
+  },[language,word,dictionaryApi])
+return(<AppContext.Provider value={{setLanguage,language,word,setWord,meanings}}>
   {children}
     </AppContext.Provider>
 )
